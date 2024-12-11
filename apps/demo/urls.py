@@ -1,10 +1,6 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import PostViewSet
-
-router = DefaultRouter()
-router.register(r'posts', PostViewSet)
+from django.urls import path
+from .views import PostInfiniteScrollView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('posts/', PostInfiniteScrollView.as_view(), name='post-infinite-scroll'),
 ]
